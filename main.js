@@ -78,6 +78,8 @@ posts.forEach((eachPost) => {
 });
 
 // MILESTONE 2
+// Creo array vuoro nel quale andrò a mettere i post ai quali ho messo like
+let likedPosts = [];
 // Seleziono tutti gli elementi del DOM relativi al bottone del likes
 const likesBtn = document.querySelectorAll(".js-like-button");
 const allLikesCounters = document.querySelectorAll(".js-likes-counter");
@@ -86,6 +88,9 @@ likesBtn.forEach((eachLikesBtn, index) => {
   eachLikesBtn.addEventListener("click", function () {
     const relatedLikeBtn = likesBtn[index];
     relatedLikeBtn.classList.add("like-button--liked");
+    // Aggiungo l'indice del post al quale ho messo like nell'array likedPosts
+    likedPosts.push(this.dataset.postid);
+    console.log(likedPosts);
     // Incremento il numero di likes
     const relatedLikeCounter = allLikesCounters[index];
     let numberOfLikes = parseInt(relatedLikeCounter.innerHTML);
