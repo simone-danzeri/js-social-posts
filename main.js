@@ -78,7 +78,7 @@ posts.forEach((eachPost) => {
 });
 
 // MILESTONE 2
-// Creo array vuoro nel quale andrò a mettere i post ai quali ho messo like
+// Creo array vuoto nel quale andrò a mettere i post ai quali ho messo like
 let likedPosts = [];
 // Seleziono tutti gli elementi del DOM relativi al bottone del likes
 const likesBtn = document.querySelectorAll(".js-like-button");
