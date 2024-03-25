@@ -68,7 +68,6 @@ const posts = [
 ];
 
 //  MILESTONE 1
-// Stampo in pagina ogni oggetto dell'array post
 // Seleziono l'elemento del DOM in cui stampo i post
 const postContainer = document.querySelector(".posts-list");
 console.log(postContainer);
@@ -77,6 +76,19 @@ posts.forEach((eachPost) => {
   const postTemplate = generateSinglePost(eachPost);
   postContainer.innerHTML += postTemplate;
 });
+
+// MILESTONE 2
+// Seleziono tutti gli elementi del DOM relativi al bottone del likes
+const likesBtn = document.querySelectorAll(".js-like-button");
+const allLikesCounters = document.querySelectorAll(".js-likes-counter")
+// Al click di ogni likesBtn aggiungo la classe per rendere il bottone verde
+likesBtn.forEach((eachLikesBtn, index) => {
+    eachLikesBtn.addEventListener('click', function() {
+        const relatedLikeBtn = likesBtn[index];
+        relatedLikeBtn.classList.add('like-button--liked');
+    });
+});
+
 
 // FUNCTIONS
 function generateSinglePost(eachPost) {
@@ -116,4 +128,9 @@ function generateSinglePost(eachPost) {
     </div>
     `;
   return postTemplate;
+}
+
+
+function likesIncrementer() {
+
 }
