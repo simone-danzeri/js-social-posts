@@ -80,15 +80,19 @@ posts.forEach((eachPost) => {
 // MILESTONE 2
 // Seleziono tutti gli elementi del DOM relativi al bottone del likes
 const likesBtn = document.querySelectorAll(".js-like-button");
-const allLikesCounters = document.querySelectorAll(".js-likes-counter")
+const allLikesCounters = document.querySelectorAll(".js-likes-counter");
 // Al click di ogni likesBtn aggiungo la classe per rendere il bottone verde
 likesBtn.forEach((eachLikesBtn, index) => {
-    eachLikesBtn.addEventListener('click', function() {
-        const relatedLikeBtn = likesBtn[index];
-        relatedLikeBtn.classList.add('like-button--liked');
-    });
+  eachLikesBtn.addEventListener("click", function () {
+    const relatedLikeBtn = likesBtn[index];
+    relatedLikeBtn.classList.add("like-button--liked");
+    // Incremento il numero di likes
+    const relatedLikeCounter = allLikesCounters[index];
+    let numberOfLikes = parseInt(relatedLikeCounter.innerHTML);
+    numberOfLikes++;
+    relatedLikeCounter.innerHTML = numberOfLikes;
+  });
 });
-
 
 // FUNCTIONS
 function generateSinglePost(eachPost) {
@@ -128,9 +132,4 @@ function generateSinglePost(eachPost) {
     </div>
     `;
   return postTemplate;
-}
-
-
-function likesIncrementer() {
-
 }
