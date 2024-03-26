@@ -85,7 +85,8 @@ const likesBtn = document.querySelectorAll(".js-like-button");
 const allLikesCounters = document.querySelectorAll(".js-likes-counter");
 // Al click di ogni likesBtn aggiungo la classe per rendere il bottone verde
 likesBtn.forEach((eachLikesBtn, index) => {
-  eachLikesBtn.addEventListener("click", function () {
+  eachLikesBtn.addEventListener("click", function (event) {
+    event.preventDefault(); // Smette di tornare ad inizio pagina ogni volta che premo like
     const relatedLikeBtn = likesBtn[index];
     relatedLikeBtn.classList.add("like-button--liked");
     // Aggiungo l'indice del post al quale ho messo like nell'array likedPosts
